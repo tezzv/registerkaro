@@ -7,12 +7,18 @@ dotenv.config();
 
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: true } : false,
 });
 
+
 // Connect to the database
-client.connect();
+client.connect((err) => {
+  if (err) {
+    console.error('Failed to connect to the database:', err.stack);
+  } else {
+    console.log('Connected to the database');
+  }
+});
+
 
 export default client;

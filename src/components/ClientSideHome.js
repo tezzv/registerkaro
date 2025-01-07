@@ -1,8 +1,29 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function ClientSideHome({ companies }) {
+export default function ClientSideHome() {
+
+    const [companies, setCompanies] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch('/api/companies'); // Relative URL
+                if (!res.ok) {
+                    console.error("Data not fetched successfully");
+                    throw new Error('Error fetching data');
+                }
+                const data = await res.json();
+                setCompanies(data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     const [selectedCompany, setSelectedCompany] = useState(null);
 
     const handleCompanySelection = (company) => {
