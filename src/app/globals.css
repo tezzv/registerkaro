@@ -19,3 +19,78 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.bg1 {
+  background-image: url('/images/bghome1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  min-height: calc(0.4056 * 100vw);
+  /* z-index: -100; */
+  position: absolute;
+}
+
+.comphead {
+  font-size: 48px;
+  font-weight: 600;
+  font-family: sans-serif;
+  z-index: 100;
+}
+
+.contenthome {
+  margin-top: 100px;
+  padding: 0 0 0 10px;
+}
+
+.componylist {
+  margin-top: 50px;
+  display: flex;
+  width: 60vw;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.companyname{
+  font-size: 32px;
+  font-weight: 400;
+  font-family: sans-serif;
+  z-index: 100;
+  color: #0f3a65;
+}
+
+.companyname:hover{
+  color: #205890;
+}
+
+.companydetails{
+  font-size: 16px;
+  font-weight: 400;
+  font-family: sans-serif;
+  z-index: 100;
+  color: #0f3a65;
+
+  padding: 0 0 0 10px;
+  margin-top: 40px;
+  width: 50vw;
+}
+
+.about{
+  width: fit-content;
+  padding: 0 10px 0 10px;
+  color: #363F72;
+  background: #EEF4FF;
+
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.directors{
+  width: fit-content;
+  padding: 0 10px 0 10px;
+  color: #6941C6;
+  background: #F9F5FF;
+
+  margin-top: 20px;
+  margin-bottom: 4px;
+}
