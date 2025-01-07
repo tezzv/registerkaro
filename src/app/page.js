@@ -7,8 +7,9 @@ export default async function Home() {
 
   try {
     const res = await fetch('http://localhost:3000/api/companies');
-    console.log(res);
+    // console.log(res);
     if (!res.ok) {
+      console.error("Data not fetched succesfully");
       throw new Error('Error fetching data');
     }
 

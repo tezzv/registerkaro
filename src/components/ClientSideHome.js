@@ -5,24 +5,35 @@ import { useState } from 'react';
 export default function ClientSideHome({ companies }) {
     const [selectedCompany, setSelectedCompany] = useState(null);
 
+    const handleCompanySelection = (company) => {
+        // If the same company is clicked, deselect it (toggle behavior)
+        setSelectedCompany((prev) => (prev?.id === company.id ? null : company));
+    };
+
     return (
         <div className="">
             <div className="bg1">
                 <div className="contenthome">
-                    <h1 className="text-xl font-bold comphead">Listed Companies</h1>
+                    <h1 className="text-xl font-bold text-black comphead">Listed Companies</h1>
 
                     <ul className="componylist">
                         {Array.isArray(companies) && companies.length > 0 ? (
                             companies.map((company) => (
                                 <li className="companyname" key={company.id}>
-                                    <button onClick={() => setSelectedCompany(company)}>{company.name}</button>
+                                    <button
+                                        onClick={() => handleCompanySelection(company)}
+                                        className={`px-4 py-2 my-1 rounded ${selectedCompany?.id === company.id ? "bg-blue-500 text-white" : "bg-gray-200 text-black"
+                                            }`}
+                                    >
+                                        {company.name}
+                                    </button>
                                 </li>
                             ))
                         ) : (
-                            <li>No companies found</li>
+                            <li className="text-black">No companies found</li>
                         )}
-
                     </ul>
+
                 </div>
 
                 <div className="companydetails">

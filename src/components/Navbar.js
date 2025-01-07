@@ -17,8 +17,8 @@ const Navbar = () => {
                         src="images/reglogo.svg"
                         alt="Logo"
                         width={0}
-                        height={60}
-                        style={{ width: 'auto', height: '60px' }}
+                        height={0}
+                        style={{ width: 'auto', height: 'auto' }}
                     />
                 </Link>
             </div>
